@@ -1,0 +1,50 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-dark">
+            <ion-nav-back-button class="no-text">
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="side-menu21"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-stable">
+        <div class="title">Junt@da</div>
+      </ion-header-bar>
+      <ion-content padding="false" class="side-menu-left has-header">
+        <ion-list style="font-size: larger!important">
+          <ion-item class="item-thumbnail-left" ui-sref="nav.profile" menu-close="" style="background-color: #afafaf!important">
+            <img ng-src="{{vm.user.photo}}">
+            <h2>{{vm.user.nickname}}</h2>
+            <p style="font-size:110%!important">{{vm.user.name}} {{vm.user.lastName}}</p>
+          </ion-item>
+          <a class="item item-icon-left" ui-sref="nav.contacts" menu-close="">
+            <i class="icon ion-person-stalker"></i>&nbsp;Contactos
+            <span class="badge badge-positive">{{vm.user.contactsCount}}</span>
+          </a>
+          <a class="item item-icon-left" ui-sref="nav.myEvents" menu-close="">
+            <i class="icon ion-ios-bookmarks"></i>&nbsp;Mis eventos
+            <span class="badge badge-positive">{{vm.user.myEventsCount}}</span>
+          </a>
+          <hr>
+          <a class="item item-icon-left" ui-sref="nav.newEvent" menu-close="">
+            <i class="icon ion-plus-round"></i>&nbsp;Nuevo evento
+          </a>
+          <a class="item item-icon-left" ui-sref="nav.events" menu-close="">
+            <i class="icon ion-calendar"></i>&nbsp;Eventos cercanos
+            <span class="badge badge-positive">{{vm.user.eventsCount}}</span>
+          </a>
+          <a class="item item-icon-left" ui-sref="nav.findEvent" menu-close="">
+            <i class="icon ion-search"></i>&nbsp;Buscar evento
+          </a>
+          <hr>
+          <a class="item item-icon-left" ui-sref="nav.options" menu-close="">
+            <i class="icon ion-gear-a"></i>&nbsp;Opciones
+          </a>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

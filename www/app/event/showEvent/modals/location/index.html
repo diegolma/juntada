@@ -1,0 +1,9 @@
+<ion-view view-title="Ubicación" cache-view="false">
+	<ion-nav-buttons side="secondary">
+		<button ng-if="vm.before && vm.isOrganizer()" ng-click="vm.editLocation()" type="button" class="button button-clear button-icon" ng-class="{'ion-edit': vm.type, 'ion-archive': !vm.type}"></button>
+	</ion-nav-buttons>
+	<ion-content>
+    <input ng-show="!vm.type" id="pac-input" class="controls" type="text" placeholder="Busca aquí">
+    <div id="mapModal" data-tap-disabled="true" ng-style="vm.size"></div>
+	</ion-content>
+</ion-view>

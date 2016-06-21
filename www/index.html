@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * &apos;unsafe-inline&apos;; script-src * &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;; img-src * data: &apos;unsafe-inline&apos;; connect-src * &apos;unsafe-inline&apos;; frame-src *;">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" charset="utf-8">
+    <link href="lib/robotodraft/robotodraft.css" rel="stylesheet" type="text/css">
+    <link href="lib/ion-fab/css/ion-fab.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+
+    <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!--application's javascript-->
+    <script src="app/app.js"></script>
+
+    <!--user's js-->
+    <script src="app/user/login/controller.js"></script>
+    <script src="app/user/login/service.js"></script>
+    <script src="app/user/signup/controller.js"></script>
+    <script src="app/user/signup/service.js"></script>
+    <script src="app/user/profile/controller.js"></script>
+    <script src="app/user/profile/service.js"></script>
+    <script src="app/user/contacts/controller.js"></script>
+    <script src="app/user/contacts/service.js"></script>
+    <script src="app/user/contacts/add.controller.js"></script>
+    <script src="app/user/contacts/add.service.js"></script>
+
+    <!--event's js-->
+    <script src="app/event/myEvents/controller.js"></script>
+    <script src="app/event/myEvents/service.js"></script>
+    <script src="app/event/newEvent/controller.js"></script>
+    <script src="app/event/newEvent/locationController.js"></script>
+    <script src="app/event/newEvent/service.js"></script>
+    <script src="app/event/findEvent/controller.js"></script>
+    <script src="app/event/events/controller.js"></script>
+    <script src="app/event/events/service.js"></script>
+    <script src="app/event/showEvent/controller.js"></script>
+    <script src="app/event/showEvent/service.js"></script>
+    <script src="app/event/showEvent/modals/edit/controller.js"></script>
+    <script src="app/event/showEvent/modals/list/controller.js"></script>
+    <script src="app/event/showEvent/modals/location/controller.js"></script>
+    <script src="app/user/login/modals/completeData/controller.js"></script>
+    <script src="app/user/login/modals/completeData/directive.js"></script>
+
+    <!--router-->
+    <script src="app/shared/router.js"></script>
+
+    <!--Shared js-->
+    <script src="app/shared/constants.js"></script>
+    <script src="app/shared/sidemenu/controller.js"></script>
+    <script src="app/shared/options/controller.js"></script>
+    <script src="app/shared/picture/service.js"></script>
+    <script src="app/shared/push/service.js"></script>
+
+    <!--application's dependences-->
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+    <script src="lib/angular-md5/angular-md5.min.js"></script>
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/a0-angular-storage/dist/angular-storage.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/jquery/dist/jquery-2.1.0.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEpjIgvJxz6Kc--ywjowihF0BLIgLaLmk&amp;libraries=places"></script>
+    <script src="lib/oauth/ng-cordova-oauth.min.js"></script>
+    <script src="lib/ion-fab/js/ion-fab.js"></script>
+    <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
+
+  </head>
+  <body ng-app="app">
+    <ion-nav-view></ion-nav-view> <!--templates place-->
+  </body>
+</html>

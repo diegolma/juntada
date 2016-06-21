@@ -1,0 +1,28 @@
+<ion-view view-title="Agregar contactos" cache-view="false" hide-nav-bar="vm.show">
+  <ion-header-bar ng-if="vm.show" class="bar-dark item-input-inset">
+    <label class="item-input-wrapper" style="max-width:80%!important;margin-left:1%">
+      <input type="search" placeholder="Buscar" ng-model="vm.cond">
+    </label>
+    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+  </ion-header-bar>
+	<ion-nav-buttons side="secondary">
+    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header" style="top:44px">
+		<div class="list">
+
+			<div class="item item-divider" ng-repeat-start="(firstLetter, users) in vm.aux">
+         {{firstLetter}}
+      </div>
+
+      <a class="item item-avatar item-button-right" ng-repeat="user in users | filter: vm.cond">
+				<img ng-src="{{user.photo}}">
+        <h2>{{user.nickname}}</h2>
+        <p>{{user.name}} {{user.lastName}}</p>
+				<button class="button ink button-positive icon ion-plus-round" ng-click="vm.add(user)"></button>
+      </a>
+
+      <div ng-repeat-end></div>
+    </div>
+	</ion-content>
+</ion-view>

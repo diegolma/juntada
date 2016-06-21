@@ -1,0 +1,28 @@
+<table ng-if="vm.add" class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Agregados</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in vm.newAdded" class="info">
+            <td>{{vm.nickname(item)}}</td>
+            <td><i class="material material-done"></i></td>
+        </tr>
+    </tbody>
+</table>
+<table ng-if="vm.remove" class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>Removidos</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in vm.newRemoved" class="danger">
+            <td>{{vm.nickname(item)}}</td>
+            <td><i class="material material-cancel"></i></td>
+        </tr>
+    </tbody>
+</table>

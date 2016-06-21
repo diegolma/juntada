@@ -1,0 +1,42 @@
+<ion-view cache-view="false" hide-nav-bar="vm.show">
+  <ion-nav-title>{{vm.event.name}}</ion-nav-title>
+  <ion-header-bar ng-if="vm.show" class="bar-dark item-input-inset">
+    <button class="button button-clear button-icon ion-chevron-down"></button>
+    <label class="item-input-wrapper" style="max-width:80%!important;margin-left:1%">
+      <input type="search" placeholder="Buscar" ng-model="vm.search">
+    </label>
+    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+  </ion-header-bar>
+	<ion-nav-buttons side="secondary">
+    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+	</ion-nav-buttons>
+  <ion-header-bar class="bar bar-subheader" align-title="center">
+    <h4 class="title">{{vm.htitle}}</h4>
+  </ion-header-bar>
+	<ion-content class="has-header" ng-class="{'has-header':vm.show}">
+    <div class="list">
+      <div class="item item-divider" ng-repeat-start="(firstLetter, contacts) in vm.aux">
+         {{firstLetter}}
+      </div>
+
+      <div class="item" ng-repeat="contact in contacts | filter : vm.search">
+        <div class="item-content pull-left" style="width:80%">
+          <a class="item item-avatar">
+            <img ng-src="{{contact.photo}}">
+            <h2>{{contact.nickname}}</h2>
+            <p>{{contact.name}} {{contact.lastName}}</p>
+          </a>
+        </div>
+        <label class="checkbox pull-right">
+          <input type="checkbox" ng-model="contact.selected">
+        </label>
+      </div>
+
+      <div ng-repeat-end></div>
+    </div>
+    <div ng-hide="!Object.keys(vm.contacts).length">No tienes contactos</div>
+	</ion-content>
+  <ion-footer-bar align-title="center" class="bar-positive" ng-click="vm.save(vm.listType)">
+    <h4 class="title">Guardar ({{vm.selectedItems.length}})</h4>
+  </ion-footer-bar>
+</ion-view>

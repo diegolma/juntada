@@ -1,0 +1,35 @@
+<ion-view view-title="Editar" cache-view="false">
+	<ion-content>
+		<div class="col-xs-12">
+			<div clas="row">
+				<form class="list" novalidate>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Título del evento:</span>
+						<input type="text" placeholder="Título del Evento" ng-model="vm.event.name" required>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Descripción:</span>
+						<textarea type="text" placeholder="Descripción" ng-model="vm.event.description" required></textarea>
+					</label>
+					<ion-toggle class="padding" toggle-class="toggle-positive" ng-model="vm.event.private" ng-checked="vm.event.private"><strong>Evento privado:</strong></ion-toggle>
+					<label class="control-label padding">Precio:</label>
+					<div class="item item-input" style="float:right;width:60%">
+						<input type="number" placeholder="Precio" ng-model="vm.event.price" required min="0" style="text-align:center">
+					</div>
+					<br>
+					<label class="control-label padding">Fecha de inicio:</label>
+					<div class="item item-icon-left" ion-datetime-picker title="vm.title" ng-model="vm.event.startsAt">
+						<strong>{{vm.event.startsAt | date: "yyyy-MM-dd H:mm"}}</strong>
+					</div>
+					<label class="control-label padding">Fecha de finalización:</label>
+					<div class="item item-icon-left" ion-datetime-picker title="vm.title" ng-model="vm.event.endsAt">
+						<strong>{{vm.event.endsAt | date: "yyyy-MM-dd H:mm"}}</strong>
+					</div>
+				</form>
+			</div>
+		</div>
+	</ion-content>
+	<ion-footer-bar align-title="center" class="bar-positive" ng-click="vm.save()">
+    <h4 class="title">Guardar</h4>
+  </ion-footer-bar>
+</ion-view>

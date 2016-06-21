@@ -1,0 +1,52 @@
+<ion-view view-title="Registro">
+	<ion-content class="login-bg">
+    <div class="container">
+      <div class="centered padding">
+        <div class="col-xs-12 login-form">
+          <form name="form" class="list" ng-submit="form.$valid && vm.signup()" novalidate>
+            <label class="item item-input item-floating-label">
+          		<span class="input-label">Nickname</span>
+          		<input type="text" placeholder="Nickname" name="nickname" ng-model="vm.nickname" required="" />
+          	</label>
+            <label class="item item-input item-floating-label">
+          		<span class="input-label">Email</span>
+          		<input type="email" placeholder="E-mail" name="mail" ng-model="vm.mail" required="" />
+          	</label>
+            <label class="item item-input item-floating-label">
+          		<span class="input-label">Celular</span>
+          		<input type="tel" placeholder="Celular" name="cel" ng-model="vm.cel" required="" />
+          	</label>
+            <label class="item item-input item-floating-label">
+          		<span class="input-label">Contraseña</span>
+          		<input type="password" placeholder="Contraseña" name="pass" ng-model="vm.pass" required="" />
+          	</label>
+            <label class="item item-input item-floating-label">
+          		<span class="input-label">Confirmar contraseña</span>
+          		<input type="password" placeholder="Confirmar contraseña" name="repass" ng-model="vm.repass" required="" />
+          	</label>
+            <button type="submit" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1">Registrarme</button>
+          </form>
+          <div class="text-center">
+            <strong>
+              o
+              <a ui-sref="login" class="login-link"><h4>inicia sesi&oacute;n</h4></a>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+		<br>
+		<div class="container">
+			<div class="alert alert-warning padding" role="alert" ng-show="form.$submitted && (form.nickname.$error.required || form.mail.$error.required || form.cel.$error.required || form.pass.$error.required || form.repass.$error.required)">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<span class="icon ion-alert-circled" aria-hidden="true"></span>
+				<span>Todos los campos son obligatorios</span>
+			</div>
+			<div class="alert alert-warning padding" role="alert" ng-show="form.$submitted && form.mail.$error.email">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<span class="icon ion-alert-circled" aria-hidden="true"></span>
+				<span>El e-mail no tiene el formato correcto</span>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="Iniciar Sesi&oacute;n" can-swipe-back="false">
+	<ion-content class="login-bg">
+    <div class="hero no-header flat">
+      <div class="content">
+        <div class="app-icon"></div>
+      </div>
+    </div>
+    <div class="container">
+			<div class="alert alert-warning padding" role="alert" ng-show="form.$submitted && (vm.user.length === 0 || vm.password.length === 0)">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<span class="icon ion-alert-circled" aria-hidden="true"></span>
+				<span>Todos los campos son obligatorios</span>
+			</div>
+      <div class="centered padding">
+        <div class="col-xs-12 login-form">
+          <form name="form" class="list" ng-submit="form.$valid && vm.login()" novalidate>
+            <label class="item item-input item-floating-label">
+          		<span class="input-label">Usuario</span>
+          		<input type="text" placeholder="Usuario" ng-model="vm.user" name="user" required="" />
+          	</label>
+            <label class="item item-input item-floating-label">
+          		<span class="input-label">Contraseña</span>
+          		<input type="password" placeholder="Contraseña" ng-model="vm.password" name="password" required="" />
+          	</label>
+            <button type="submit" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1">Iniciar Sesi&oacute;n</button>
+          </form>
+          <div class="text-center">
+            <strong>
+              o
+              <a ui-sref="signup" class="login-link"><h4>registrate aqui</h4></a>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+		<div class="container">
+			<div class="button-bar padding">
+				<!--<a class="button button-raised button-positive-900 icon ion-social-facebook" ng-click="vm.loginFB()"></a>-->
+				<a class="button button-raised button-assertive icon ion-social-googleplus" ng-click="vm.loginGO()"></a>
+			</div>
+		</div>
+		<complete-modal id="completeModal"></complete-modal>
+	</ion-content>
+</ion-view>

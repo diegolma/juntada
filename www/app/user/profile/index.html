@@ -1,0 +1,58 @@
+<ion-view view-title="Tus datos">  
+  <ion-content class="login-bg">
+    <div class="hero has-mask" style="background-color: dark">
+      <div class="content">
+        <div class="avatar" ng-style="vm.pic"></div>
+        <h3><a class="light">{{vm.user.nickname}}</a></h3>
+        <h4>{{vm.user.name}} {{vm.user.lastName}}</h4>
+      </div>
+    </div>
+    <div class="button-bar">
+      <button ng-click="vm.upPhoto(0)" class="button button-dark icon ion-images"></button>
+      <button ng-click="vm.upPhoto(1)" class="button button-dark icon ion-camera"></button>
+    </div>
+    <div class="container">
+      <div class="centered col-xs-12 padding">
+        <form id="form" name="form" class="list" ng-submit="form.$valid && vm.saveData()">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Nickname</span>
+            <input type="text" placeholder="Nickname" name="nickname" ng-model="vm.user.nickname" required="" readonly="" />
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">E-mail</span>
+            <input type="email" placeholder="E-mail" name="mail" required="" ng-model="vm.user.email" ng-readonly="!vm.editing" />
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Celular</span>
+            <input type="tel" placeholder="Celular" name="cel" required="" ng-model="vm.user.phone" ng-readonly="!vm.editing" />
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Nombre</span>
+            <input type="text" placeholder="Nombre" name="name" ng-model="vm.user.name" ng-readonly="!vm.editing" />
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Apellido</span>
+            <input type="text" placeholder="Apellido" name="lastname" ng-model="vm.user.lastName" ng-readonly="!vm.editing" />
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Dirección</span>
+            <input type="text" placeholder="Dirección" name="address" ng-model="vm.user.address" ng-readonly="!vm.editing" />
+          </label>
+          <button type="submit" ng-click="vm.toggleButton()" class="button button-block button-calm ink">{{vm.button}}</button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="alert alert-warning padding" role="alert" ng-show="form.$submitted && (form.mail.$error.required || form.cel.$error.required)">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="icon ion-alert-circled" aria-hidden="true"></span>
+        <span>E-mail y celular son obligatorios</span>
+      </div>
+      <div class="alert alert-warning padding" role="alert" ng-show="form.mail.$error.email">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="icon ion-alert-circled" aria-hidden="true"></span>
+        <span>El e-mail no tiene el formato correcto</span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

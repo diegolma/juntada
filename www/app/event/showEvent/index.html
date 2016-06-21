@@ -1,0 +1,106 @@
+<ion-view ng-init="comment=false">
+  <ion-nav-title>{{vm.event.name}}</ion-nav-title>
+  <ion-content has-bouncing="true">
+    <div class="event-header" ng-style="vm.bannerBackground" ng-click="vm.updateB()"></div>
+    <div class="see-event-content">
+      <!--Content goes here-->
+      <ul class="options">
+        <li ng-click="vm.location()" class="circle-option"><i class="icon ion-location"></i></li>
+        <!--Lugar-->
+        <li class="circle-option" ng-show="vm.event.goVisible && vm.before" ng-click="vm.go()">
+          <i class="icon ion-checkmark"></i>
+        </li><!--Ir-->
+        <li class="circle-option" ng-show="vm.event.notGoVisible && vm.before" ng-click="vm.notGo()">
+          <i class="icon ion-close"></i>
+        </li><!--No ir-->
+        <li class="circle-option" ng-click="comment=!comment" ng-show="vm.during || vm.after">
+          <i class="icon ion-chatbubbles"></i>
+        </li><!--comentar-->
+        <li uib-dropdown ng-if="vm.isOrganizer() && vm.before && vm.event.status_id !== 3" style="display: inline-block;">
+          <div class="circle-option" id="btn-append-to-single-button" uib-dropdown-toggle>
+            <i class="icon ion-settings"></i>
+          </div>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
+              <!--Sólo para organizadores-->
+              <li role="menuitem" ng-if="vm.isOrganizer()">
+                <a ng-click="vm.list(1)">Invitados<i class="badge pull-right">{{vm.event.guests.length - 1}}</i></a>
+              </li>
+              <li role="menuitem" ng-if="vm.isOrganizer()">
+                <a ng-click="vm.edit()"><i class="icon ion-edit"></i> Editar</a>
+              </li>
+              <!--Sólo para el creador-->
+              <li class="divider" ng-if="vm.creator"></li>
+              <li role="menuitem" ng-if="vm.creator">
+                <a ng-click="vm.list(2)">Organizadores<i class="badge pull-right">{{vm.event.organizers.length - 1}}</i></a>
+              </li>
+              <li role="menuitem" ng-if="vm.creator" ng-click="vm.cancel()">
+                <a><i class="icon ion-trash-a"></i> Cancelar Evento</a>
+              </li>
+              <!--Finaliza el espacio de solo para el creador-->
+          </ul>
+        </li><!--comentar-->
+      </ul>
+      <div class="row text-left">
+        <div class="card padding">
+          <div class="item">
+            <i class="icon ion-pound"></i>
+            {{vm.event.description}}
+          </div>
+          <div class="item">
+            <i class="icon ion-clock"></i>
+            Desde {{vm.event.startsAt | date: "dd/MM H:mm"}} - hasta {{vm.event.endsAt | date: "dd/MM H:mm"}}
+          </div>
+          <div class="item">
+            <i class="icon ion-cash"></i>
+            {{vm.priceLabel}}
+          </div>
+        </div>
+      </div>
+      <div class="my-content" ng-show="comment">
+        <form ng-submit="vm.saveContent()">
+          <a class="item">
+            <img ng-if="vm.showPic" ng-src="{{vm.newContent.file}}" style="max-height:100px!important;max-width:90%!important"/>
+          </a>
+          <div class="row">
+            <div class="col col-75">
+              <div class="form-group">
+                <textarea class="form-control" rows="5" placeholder="Comparte con los demás tu experiencia en {{vm.event.name | uppercase}}" ng-model="vm.newContent.message"></textarea>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                  <button type="button" class="button button-full button-calm button-small" ng-click="vm.fileFromGallery()">
+                    <i class="icon ion-images"></i>
+                  </button>
+              </div>
+              <div class="row">
+                <button type="button" class="button button-full button-calm button-small" ng-click="vm.fileFromCamera()">
+                  <i class="icon ion-camera"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="button button-block button-calm ink">Publicar Contenido</button>
+        </form>
+      </div>
+      <div class="item" item-height="vm.altura(content)" style="padding:0px!important" collection-repeat="content in vm.event.contents">
+        <div class="card animated flipInX" style="background-color:dimgray!important">
+          <div class="item item-avatar" style="color:white!important;text-align:left">
+            <span class="avatar" ng-style="content.photo"></span>
+            <strong style="color:white!important;">{{content.creator}}</strong>-
+            {{content.message}}
+            <a ng-if="content.file" class="image">
+              <img ng-src="{{content.file}}" style="max-height:100px!important;max-width:100%!important">
+            </a>
+            <div class="card-footer text-right">
+              <div style="color:white!important;" class="pull-left">
+                <i class="icon ion-clock"></i> {{vm.formatDate(content.createdAt)}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ion-infinite-scroll ng-if="vm.moreData()" immediate-check="false" on-infinite="vm.loadMore()" distance="1%"></ion-infinite-scroll>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<div id="loginModal">
+    <div class="modal-header text-center dark-bg" style="color:white">
+        <button type="button" class="close" ng-click="vm.reset()" data-dismiss="modal" aria-hidden="true" style="color:white">×</button>
+        <div>
+            <h4>Datos</h4>
+        </div>
+    </div>
+    <div class="modal-body">
+      <div class="card">
+        <div class="item item-text-wrap">
+          Antes de continuar necesitamos que completes estos datos.
+        </div>
+      </div>
+      <form class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Nickname</span>
+          <input type="text" placeholder="Nickname" ng-model="vm.user.nickname" ng-required="required">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Celular</span>
+          <input type="tel" placeholder="Celular" ng-model="vm.user.phone" ng-required="required">
+        </label>
+      </form>
+    </div>
+    <div class="modal-footer dark-bg">
+        <button type="button" ng-click="vm.reset()" class="btn btn-default">Cerrar</button>
+        <button type="button" class="btn btn-primary" ng-click="vm.signup()">Guardar</button>
+    </div>
+</div>

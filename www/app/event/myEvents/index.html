@@ -1,0 +1,24 @@
+<ion-view view-title="Mis eventos" hide-back-button="false" hide-nav-bar="vm.show">
+  <ion-header-bar ng-if="vm.show" class="bar-dark item-input-inset">
+    <label class="item-input-wrapper" style="max-width:80%!important;margin-left:1%">
+      <input type="search" placeholder="Buscar" ng-model="vm.q">
+    </label>
+    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+  </ion-header-bar>
+	<ion-nav-buttons side="secondary">
+    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header" style="top:44px" scroll="true" overflow-scroll="false">
+    	<div class="list condensed-space no-padding">
+        <div class="card dark-bg" ng-repeat="event in vm.events | filter: vm.q">
+          <a id="a{{event.id}}" class="item clear-bg item-bg-image" ng-click="vm.showEvent(event.id)">
+    	      <h2>{{event.name}}</h2>
+    	      <p>{{event.startsAt | date : 'd/M/yy HH:mm'}}</p>
+    	      <img ng-src="{{event.banner}}">
+          </a>
+        </div>
+      </div>
+    <ion-item ng-if="(vm.eventsCount === 0)">No tienes eventos :(</ion-item>
+    <ion-infinite-scroll ng-if="vm.moreData()" immediate-check="false" on-infinite="vm.loadMore()" distance="10%"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

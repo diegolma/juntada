@@ -1,0 +1,413 @@
+/* General
+==================================*/
+h1 {
+    color: #fff;
+    text-shadow: 0 1px 0px #000;
+    font-size: 42px;
+}
+
+/* Utilities
+==================================*/
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+input[readonly]{
+  background: transparent !important;
+}
+ion-content ion-content.scroll-content.ionic-scroll{
+	display: none;
+}
+div.item-toggle{
+	border:none;
+	margin:0;
+	padding-left: 0;
+	padding-right:0;
+}
+
+/* Menu
+
+==================================*/
+.item-radio input:checked ~ .item-content {
+    background: transparent;
+}
+
+.menu-open .ion-navicon {
+    transform: rotate(-360deg);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-open .ion-navicon:before {
+    content: "\f2ca";
+}
+
+
+.directions.button-bar {
+    margin: 0 auto;
+    width: 33.333%;
+}
+
+.directions.button-bar button {
+    line-height: 26px;
+}
+
+.ion-arrow-right-c.top-left:before {
+    transform: rotate(-135deg);
+}
+
+.ion-arrow-right-c.top-right:before {
+    transform: rotate(-45deg);
+}
+
+.ion-arrow-right-c.bottom-left:before {
+    transform: rotate(-225deg);
+}
+
+.ion-arrow-right-c.bottom-right:before {
+    transform: rotate(45deg);
+}
+
+/* Login
+==================================*/
+.app-icon {
+    background-color: #fff;
+    background: url(../img/JUN.png) center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 125px;
+    margin: 0 auto;
+    width: 125px;
+}
+
+.login-bg{
+  /*
+  background-image: url(../img/friends.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: dimgrey;
+  */
+  background-color: #afafaf;
+}
+
+div.login-form{
+  background-color:rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+
+a.login-link{
+  color:black;
+}
+a.login-link:hover{
+  color:black;
+  text-decoration: none;
+}
+
+::-webkit-input-placeholder {
+    color:    #222 !important;
+}
+:-moz-placeholder {
+    color:    #222 !important;
+}
+::-moz-placeholder {
+    color:    #222 !important;
+}
+:-ms-input-placeholder {
+    color:    #222 !important;
+}
+
+/* Show Event
+==================================*/
+.banner{
+	height: 200px !important;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+div.gradient{
+	position:absolute;
+	width: 100%;
+	height: 50%;
+	top:50%;
+	background: -webkit-linear-gradient(transparent, white);
+	background: linear-gradient(transparent, white);
+}
+
+div.gradient div{
+	margin-top: 100px;
+}
+
+i.material-more:before{
+	background: url(../img/ic_more_horiz_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 0px -3px 0px;
+}
+i.material-clear:before{
+	background: url(../img/ic_clear_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px -3px 0px;
+}
+i.material-done:before{
+	background: url(../img/ic_done_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px -3px 0px;
+}
+
+i.material-place:before{
+	background: url(../img/ic_place_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px -2.5px 0px;
+}
+
+i.material-sms:before{
+	background: url(../img/ic_sms_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px -2.5px 0px;
+}
+
+i.material-group:before{
+	background: url(../img/ic_group_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px -2.5px 0px;
+}
+
+i.material-cancel:before{
+	background: url(../img/ic_cancel_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px -2.5px 0px;
+}
+
+i.material-share:before{
+	background: url(../img/ic_share_black_24dp.png);
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px -2.5px 0px;
+}
+
+div.content.desc{
+	position: relative;
+	top:235px;
+	z-index: 2;
+}
+
+div.load-banner{
+	width: 72px;
+	height: 72px;
+	background: url(../img/ic_add_a_photo_black_48dp.png);
+	position: absolute;
+	top:100px;
+	left:50%;
+	margin: -36px 0 0 -36px;
+	opacity: 0.75;
+}
+
+div.load-banner:active{
+	opacity: 1;
+}
+
+
+/*  map
+======================*/
+#map {
+    width: 100%;
+    height: 250px;
+}
+
+#mapModal {
+    width: 100%;
+    height: 300px;
+}
+#customFooter{
+	padding-right: 24px;
+	padding-left: 24px;
+}
+
+.parallax-banner{
+  position: relative;
+  top:45px;
+  left:0;
+  width: 100%;
+  height: 200px;
+  background-position: center center;
+  background-size: cover;
+}
+.see-event-content{
+  position:absolute;
+  top:200px;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(#999,white);
+  text-align: center;
+}
+.options{
+  display: inline-block;
+  margin: 15px;
+}
+.circle-option{
+  height:50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #3FB4A1;
+  display: inline-block;
+  margin: 0 8px 0 8px;
+  box-shadow:#3FB4A1 0 0 5px;
+  cursor: pointer;
+  font-size: 35px;
+}
+textarea{
+  resize: none;
+  background: rgba(255, 255, 255, .5) !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+.row.description{
+  text-align: left;
+  padding: 0 20px 20px 20px;
+}
+
+.row{
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding: 0 !important;
+}
+
+.button.button-full{
+  margin-top: 0 !important;
+}
+
+.menu-font{
+  font-size:160%!important;
+}
+
+.event-header{
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.fade.in{
+  opacity: 1;
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+
+.float-button {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 30px;
+  padding: 30px;
+  font-size: 40px;
+  background: $warning;
+  position: fixed;
+  bottom: 20px; /* Adjust to where you want it */
+  right: 20px; /* Adjust to where you want it */
+  z-index: 9999;
+}
+
+.float-button .height_fix {
+  margin-top: 100%;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px; /* Note, this must be half the font size */
+  color: $light;
+}

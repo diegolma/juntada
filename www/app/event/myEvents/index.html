@@ -9,6 +9,7 @@
     <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
 	</ion-nav-buttons>
 	<ion-content class="has-header" style="top:44px" scroll="true" overflow-scroll="false">
+        <ion-refresher on-refresh="vm.update()"></ion-refresher>
     	<div class="list condensed-space no-padding">
         <div class="card dark-bg" ng-repeat="event in vm.events | filter: vm.q">
           <a id="a{{event.id}}" class="item clear-bg item-bg-image" ng-click="vm.showEvent(event.id)">

@@ -102,6 +102,7 @@ function locationController($ionicLoading, showEventsService, $ionicPopup, $scop
           map: vm.mapModal,
           animation: google.maps.Animation.DROP,
           draggable:false,
+          icon: 'img/marker.png',
           position: latLng
         });
         google.maps.event.addListener(vm.marker, 'click', function () {
@@ -144,6 +145,7 @@ function locationController($ionicLoading, showEventsService, $ionicPopup, $scop
             title: place.name,
             position: place.geometry.location,
             animation: google.maps.Animation.DROP,
+            icon: 'img/marker.png',
             draggable:true
           });
 

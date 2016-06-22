@@ -40,4 +40,23 @@ function contactsController(ionicMaterialInk, $ionicLoading, $scope, contactsSer
     vm.show = !vm.show;
   };
 
+  vm.update = function(){
+      vm.contacts = [];
+      var firstLetter;
+      vm.aux = {};
+      contactsService()
+      .then(function(response){
+        vm.contacts = response.data;
+        _.each(vm.contacts, function(user){
+          user.photo = user.photo || 'http://www.gravatar.com/avatar/' + md5.createHash(user.email.toLowerCase()) + '?s=100';
+        });
+        for(var i = 0; i < vm.contacts.length; i++) {
+          firstLetter = vm.contacts[i].nickname.substring(0,1).toUpperCase();
+          if(!vm.aux[firstLetter]) vm.aux[firstLetter] = [];
+          vm.aux[firstLetter].push(vm.contacts[i]);
+        }
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+  };
+
 }

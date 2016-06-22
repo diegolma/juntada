@@ -11,7 +11,7 @@ navController.$inject = [
 function navController(ionicMaterialInk, loginService, md5, $rootScope, $scope){
   var vm = this;
   ionicMaterialInk.displayEffect();
-  vm.user = loginService.getCurrent();  
+  vm.user = loginService.getCurrent();
 
   $scope.$on('addContact', function(event) {
     vm.user.contactsCount += 1;
@@ -20,6 +20,14 @@ function navController(ionicMaterialInk, loginService, md5, $rootScope, $scope){
   $scope.$on('addEvent', function(event) {
     vm.user.myEventsCount += 1;
     vm.user.eventsCount += 1;
+  });
+
+  $scope.$on('EventsCount', function(event, val) {
+    vm.user.eventsCount = val;
+  });
+
+  $scope.$on('MyEventsCount', function(event, val) {
+    vm.user.myEventsCount = val;
   });
 
   $scope.$on('cancelEvent', function(event) {

@@ -22,11 +22,9 @@ function newEventController($ionicLoading, pictureService, $ionicPopup, loginSer
   $ionicPickerI18n.months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
 
   vm.location = function(){
-    var since = new Date(vm.event.startsAt.toLocaleString());
-    var until = new Date(vm.event.endsAt.toLocaleString());
     if (vm.event.name !== '' && vm.event.description !== '') {
-  		if(vm.currentDate.getTime() <= since.getTime()+10800000){
-  			if(since.getTime() < until.getTime()) {
+  		if(vm.currentDate <= vm.event.startsAt){
+  			if(vm.event.startsAt < vm.event.endsAt) {
   				$state.go("nav.newEvent/location",{evt:vm.event});
   			}else {
   				$ionicPopup.alert({

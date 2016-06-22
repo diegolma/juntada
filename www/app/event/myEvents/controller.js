@@ -30,15 +30,16 @@ function myEventsController(ionicMaterialInk, $state, myEventsService, $scope, $
       event.startsAt = new Date(event.startsAt);
       event.banner = event.banner || 'img/default.png';
     });
+    myEventsService.getMyEVENTSCount().success(function(response){
+      vm.eventsCount = response;
+      $ionicLoading.hide();
+    });
   });
   vm.showEvent = function(id){
     $state.go('nav.showEvent/:id', {id: id});
     $ionicHistory.nextViewOptions({disableBack: false, historyRoot:false});
   };
-  myEventsService.getMyEVENTSCount().success(function(response){
-    vm.eventsCount = response;
-    $ionicLoading.hide();
-  });
+
   vm.loadMore = function(){
     myEventsService.getMyEVENTS(vm.events.length).success(function(response){
       _.each(response,function(event){
@@ -56,5 +57,21 @@ function myEventsController(ionicMaterialInk, $state, myEventsService, $scope, $
 
   vm.showSearch = function(){
     vm.show = !vm.show;
+  };
+
+  vm.update = function(){
+      myEventsService.getMyEVENTS(0).success(function(response) {
+        vm.events = response;
+        _.each(vm.events, function(event){
+          event.startsAt = new Date(event.startsAt);
+          event.banner = event.banner || 'img/default.png';
+        });
+        myEventsService.getMyEVENTSCount().success(function(response){
+          vm.eventsCount = response;
+          $ionicLoading.hide();
+          $scope.$emit('MyEventsCount', vm.eventsCount);
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+      });
   };
 }

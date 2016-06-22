@@ -38,6 +38,7 @@ function eventsController(ionicMaterialInk, $state, eventsService, $scope, $ioni
   eventsService.getMyEventsCount()
   .then(function(response){
     vm.eventsCount = response.data;
+    $scope.$emit('EventsCount', vm.eventsCount);
   });
 
   vm.loadMore = function(){
@@ -51,6 +52,23 @@ function eventsController(ionicMaterialInk, $state, eventsService, $scope, $ioni
       $ionicScrollDelegate.resize();
       $scope.$broadcast('scroll.infiniteScrollComplete');
     });
+  };
+
+  vm.update = function(){
+      eventsService.getMyEvents(0)
+      .then(function(response) {
+        vm.events = response.data;
+        _.each(vm.events, function(event){
+          event.startsAt = new Date(event.startsAt);
+          event.banner = event.banner || 'img/default.png';
+        });
+        eventsService.getMyEventsCount()
+        .then(function(response){
+          vm.eventsCount = response.data;
+          $scope.$emit('EventsCount', vm.eventsCount);
+        });
+        $scope.$broadcast('scroll.refreshComplete');
+      });
   };
 
   vm.moreData = function(){

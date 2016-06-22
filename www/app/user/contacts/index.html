@@ -1,30 +1,32 @@
 <ion-view view-title="Tus contactos" hide-nav-bar="vm.show">
-  <ion-header-bar ng-if="vm.show" class="bar-dark item-input-inset">
-    <label class="item-input-wrapper" style="max-width:80%!important;margin-left:1%">
-      <input type="search" placeholder="Buscar" ng-model="vm.search">
-    </label>
-    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
-  </ion-header-bar>
-	<ion-nav-buttons side="secondary">
-    <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
-	</ion-nav-buttons>
-	<ion-content class="has-header" style="top:44px">
-    <div class="list">
-      <div class="item item-divider" ng-repeat-start="(firstLetter, contacts) in vm.aux">
-         {{firstLetter}}
-      </div>
+    <ion-header-bar ng-if="vm.show" class="bar-dark item-input-inset">
+        <label class="item-input-wrapper" style="max-width:80%!important;margin-left:1%">
+            <input type="search" placeholder="Buscar" ng-model="vm.search">
+        </label>
+        <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+    </ion-header-bar>
+    <ion-nav-buttons side="secondary">
+        <button ng-click="vm.showSearch()" class="button button-clear button-icon ion-search"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header" style="top:44px">
+        <ion-refresher on-refresh="vm.update()"></ion-refresher>
+        <div class="list">
+            <div class="item item-divider" ng-repeat-start="(firstLetter, contacts) in vm.aux">
+                {{firstLetter}}
+            </div>
 
-      <a class="item item-avatar" ng-repeat="contact in contacts | filter : vm.search">
-        <img ng-src="{{contact.photo}}">
-        <h2>{{contact.nickname}}</h2>
-        <p>{{contact.name}} {{contact.lastName}}</p>
-      </a>
+            <a class="item item-avatar" ng-repeat="contact in contacts | filter : vm.search">
+                <img ng-src="{{contact.photo}}">
+                <h2>{{contact.nickname}}</h2>
+                <p ng-if="contact.name.length != 0 || contact.name.length != 0">{{contact.name}} {{contact.lastName}}</p>
+                <p ng-if="contact.name.length == 0 && contact.name.length == 0">&nbsp;</p>
+            </a>
 
-      <div ng-repeat-end></div>
-    </div>
-    <ion-item ng-if="vm.contacts.length === 0">No tienes contactos</ion-item>
-  </ion-content>
-  <button class="fab" style="background-color:#387ef5!important" ng-click="vm.go()">
-    <i class="icon ion-plus-round"></i>
-  </button>
+            <div ng-repeat-end></div>
+        </div>
+        <ion-item ng-if="vm.contacts.length === 0">No tienes contactos</ion-item>
+    </ion-content>
+    <button class="fab" style="background-color:#387ef5!important" ng-click="vm.go()">
+        <i class="icon ion-plus-round"></i>
+    </button>
 </ion-view>

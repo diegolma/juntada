@@ -45,6 +45,7 @@ function newEventLocationController($ionicLoading, $scope, $state, newEventServi
 				map: vm.map,
 				animation: google.maps.Animation.DROP,
 				draggable:true,
+                icon: 'img/marker.png',
 				position: latLng
 			});
 			google.maps.event.addListener(vm.marker , 'click', function () {
@@ -87,6 +88,7 @@ function newEventLocationController($ionicLoading, $scope, $state, newEventServi
           title: place.name,
           position: place.geometry.location,
           animation: google.maps.Animation.DROP,
+          icon: 'img/marker.png',
           draggable:true
         });
 

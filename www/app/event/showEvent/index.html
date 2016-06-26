@@ -13,7 +13,7 @@
         <li class="circle-option" ng-show="vm.event.notGoVisible && vm.before" ng-click="vm.notGo()">
           <i class="icon ion-close"></i>
         </li><!--No ir-->
-        <li class="circle-option" ng-click="comment=!comment" ng-show="vm.during || vm.after">
+        <li class="circle-option" ng-click="comment=!comment" ng-show="vm.during || vm.after || vm.isOrganizer()">
           <i class="icon ion-chatbubbles"></i>
         </li><!--comentar-->
         <li uib-dropdown ng-if="vm.isOrganizer() && vm.before && vm.event.status_id !== 3" style="display: inline-block;">

@@ -31,7 +31,8 @@ function pushService($http, $ionicPlatform, $cordovaLocalNotification) {
           //console.log(JSON.stringify(data));
           $cordovaLocalNotification.schedule({
             title: data.title,
-            text: data.message
+            text: data.message,
+            icon: 'https://juntada-cheloo.c9users.io/icon.png'
           });
           push.finish(function () {
             //console.log('finish successfully called');

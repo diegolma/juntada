@@ -34,10 +34,14 @@ function optionsController(ionicMaterialInk, loginService, $state, pushService, 
   vm.pushNotificationChange = function() {
     if(vm.notifications){
       pushService.init(vm.user.id);
-      $ionicLoading.show({template: 'Actualizado', duration: 2000});
+      vm.user.notif = 1;
+      loginService.setCurrent(JSON.stringify(vm.user));
+      $ionicLoading.show({template: 'Activado', duration: 2000});
     }else{
       pushService.stop(vm.user.id);
-      $ionicLoading.show({template: 'Actualizado', duration: 2000});
+      vm.user.notif = 0;
+      loginService.setCurrent(JSON.stringify(vm.user));
+      $ionicLoading.show({template: 'Desactivado', duration: 2000});
     }
   };
 }
